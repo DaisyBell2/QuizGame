@@ -2,6 +2,7 @@ package com.daisybell.expertcoursequizgame
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.daisybell.expertcoursequizgame.game.GamePage
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -34,7 +35,7 @@ class ScenarioTest {
         gamePage.assertChoiceMadeStateFirstChoice()
 
         gamePage.clickCheck()
-        gamePage.AnswerCheckedStateFirstChoice()
+        gamePage.assertAnswerCheckedStateFirstChoice()
     }
 
     /**
@@ -51,7 +52,7 @@ class ScenarioTest {
         gamePage.assertChoiceMadeStateSecondChoice()
 
         gamePage.clickCheck()
-        gamePage.AnswerCheckedStateFirstCorrectSecondIncorrect()
+        gamePage.assertAnswerCheckedStateFirstCorrectSecondIncorrect()
 
         gamePage.clickNext()
 
