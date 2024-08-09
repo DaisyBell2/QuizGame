@@ -5,6 +5,7 @@ import android.widget.LinearLayout
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withParent
+import com.daisybell.expertcoursequizgame.R
 import org.hamcrest.Matcher
 
 /**
@@ -25,21 +26,30 @@ class GamePage(
         containerClassTypeMatcher = classTypeMatcher
     )
 
-    private val choicesUiList = choices.map { choice ->
+    private val choicesUiIdList = listOf(
+        R.id.firstChoiceButton,
+        R.id.secondChoiceButton,
+        R.id.thirdChoiceButton,
+        R.id.fourthChoiceButton,
+    )
+    private val choicesUiList = choices.mapIndexed { index, choiceText ->
         ChoiceUi(
-            text = choice,
+            id = choicesUiIdList[index],
+            text = choiceText,
             containerIdMatcher = containerIdMatcher,
             containerClassTypeMatcher = classTypeMatcher
         )
     }
 
     private val checkUi = ButtonUi(
+        id = R.id.checkButton,
         textResId = R.string.check,
         colorHex = "#DF61FF",
         containerIdMatcher = containerIdMatcher,
         containerClassTypeMatcher = classTypeMatcher
     )
     private val nextUi = ButtonUi(
+        id = R.id.nextButton,
         textResId = R.string.next,
         colorHex = "#FFAD61",
         containerIdMatcher = containerIdMatcher,
