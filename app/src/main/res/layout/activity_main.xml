@@ -4,8 +4,8 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginHorizontal="16dp"
     android:orientation="vertical"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
     <Space
@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textIsSelectable="true"
-        tools:text="HHjhsdksdhfkjsdkfjdslkfjdslkfjljhakhsakjndksjnkjdshfdsfjkdsnfkjsdhfkjdshfkj" />
+        tools:text="Question Text aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
 
     <Space
         android:layout_width="wrap_content"
@@ -31,24 +31,36 @@
         android:id="@+id/firstChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
         tools:text="Вопрос 1" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/secondChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
         tools:text="Вопрос 2" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/thirdChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
         tools:text="Вопрос 3" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fourthChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="8dp"
+        android:background="@color/blue"
+        android:textColor="@color/white"
         tools:text="Вопрос 4" />
 
     <Space
@@ -60,12 +72,18 @@
         android:id="@+id/checkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/check" />
+        android:layout_marginVertical="8dp"
+        android:background="@color/purple"
+        android:text="@string/check"
+        android:textColor="@color/white" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/next" />
+        android:layout_marginVertical="8dp"
+        android:background="@color/orange"
+        android:text="@string/next"
+        android:textColor="@color/white" />
 
 </LinearLayout>
