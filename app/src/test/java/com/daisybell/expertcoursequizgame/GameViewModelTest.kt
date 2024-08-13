@@ -1,6 +1,6 @@
 package com.daisybell.expertcoursequizgame
 
-import org.junit.Assert.*
+import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
 
@@ -29,10 +29,10 @@ class GameViewModelTest {
         expected = GameUiState.ChoiceMade(
             question = "q1",
             choices = listOf<ChoiceUiState>(
-                ChoiceUiState.NotAvallableToChoose(text = "c1"),
-                ChoiceUiState.AvallableToChoose(text = "c2"),
-                ChoiceUiState.AvallableToChoose(text = "c3"),
-                ChoiceUiState.AvallableToChoose(text = "c4")
+                ChoiceUiState.NotAvailableToChoose(text = "c1"),
+                ChoiceUiState.AvailableToChoose(text = "c2"),
+                ChoiceUiState.AvailableToChoose(text = "c3"),
+                ChoiceUiState.AvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -42,9 +42,9 @@ class GameViewModelTest {
             question = "q1",
             choices = listOf<ChoiceUiState>(
                 ChoiceUiState.Correct(text = "c1"),
-                ChoiceUiState.NotAvallableToChoose(text = "c2"),
-                ChoiceUiState.NotAvallableToChoose(text = "c3"),
-                ChoiceUiState.NotAvallableToChoose(text = "c4")
+                ChoiceUiState.NotAvailableToChoose(text = "c2"),
+                ChoiceUiState.NotAvailableToChoose(text = "c3"),
+                ChoiceUiState.NotAvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -66,10 +66,10 @@ class GameViewModelTest {
         expected = GameUiState.ChoiceMade(
             question = "q1",
             choices = listOf<ChoiceUiState>(
-                ChoiceUiState.NotAvallableToChoose(text = "c1"),
-                ChoiceUiState.AvallableToChoose(text = "c2"),
-                ChoiceUiState.AvallableToChoose(text = "c3"),
-                ChoiceUiState.AvallableToChoose(text = "c4")
+                ChoiceUiState.NotAvailableToChoose(text = "c1"),
+                ChoiceUiState.AvailableToChoose(text = "c2"),
+                ChoiceUiState.AvailableToChoose(text = "c3"),
+                ChoiceUiState.AvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -78,10 +78,10 @@ class GameViewModelTest {
         expected = GameUiState.ChoiceMade(
             question = "q1",
             choices = listOf<ChoiceUiState>(
-                ChoiceUiState.AvallableToChoose(text = "c1"),
-                ChoiceUiState.NotAvallableToChoose(text = "c2"),
-                ChoiceUiState.AvallableToChoose(text = "c3"),
-                ChoiceUiState.AvallableToChoose(text = "c4")
+                ChoiceUiState.AvailableToChoose(text = "c1"),
+                ChoiceUiState.NotAvailableToChoose(text = "c2"),
+                ChoiceUiState.AvailableToChoose(text = "c3"),
+                ChoiceUiState.AvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -90,10 +90,10 @@ class GameViewModelTest {
         expected = GameUiState.ChoiceMade(
             question = "q1",
             choices = listOf<ChoiceUiState>(
-                ChoiceUiState.AvallableToChoose(text = "c1"),
-                ChoiceUiState.AvallableToChoose(text = "c2"),
-                ChoiceUiState.NotAvallableToChoose(text = "c3"),
-                ChoiceUiState.AvallableToChoose(text = "c4")
+                ChoiceUiState.AvailableToChoose(text = "c1"),
+                ChoiceUiState.AvailableToChoose(text = "c2"),
+                ChoiceUiState.NotAvailableToChoose(text = "c3"),
+                ChoiceUiState.AvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -102,10 +102,10 @@ class GameViewModelTest {
         expected = GameUiState.ChoiceMade(
             question = "q1",
             choices = listOf<ChoiceUiState>(
-                ChoiceUiState.AvallableToChoose(text = "c1"),
-                ChoiceUiState.AvallableToChoose(text = "c2"),
-                ChoiceUiState.AvallableToChoose(text = "c3"),
-                ChoiceUiState.NotAvallableToChoose(text = "c4")
+                ChoiceUiState.AvailableToChoose(text = "c1"),
+                ChoiceUiState.AvailableToChoose(text = "c2"),
+                ChoiceUiState.AvailableToChoose(text = "c3"),
+                ChoiceUiState.NotAvailableToChoose(text = "c4")
             )
         )
         assertEquals(expected, actual)
@@ -115,8 +115,8 @@ class GameViewModelTest {
             question = "q1",
             choices = listOf<ChoiceUiState>(
                 ChoiceUiState.Correct(text = "c1"),
-                ChoiceUiState.NotAvallableToChoose(text = "c2"),
-                ChoiceUiState.NotAvallableToChoose(text = "c3"),
+                ChoiceUiState.NotAvailableToChoose(text = "c2"),
+                ChoiceUiState.NotAvailableToChoose(text = "c3"),
                 ChoiceUiState.Incorrect(text = "c4")
             )
         )
