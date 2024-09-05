@@ -2,8 +2,9 @@ package com.daisybell.expertcoursequizgame
 
 import android.graphics.Color
 import androidx.appcompat.widget.AppCompatButton
+import java.io.Serializable
 
-interface ChoiceUiState {
+interface ChoiceUiState : Serializable {
 
     fun update(button: AppCompatButton)
 
@@ -15,14 +16,14 @@ interface ChoiceUiState {
     ) : ChoiceUiState {
         override fun update(button: AppCompatButton) = with(button) {
             text = textButton
-            if (enabled) setBackgroundColor(Color.parseColor(color))
+            setBackgroundColor(Color.parseColor(color))
             isClickable = clickable
             isEnabled = enabled
         }
     }
 
     data class NotAvailableToChoose(private val text: String) :
-        Abstract(text, color = "", clickable = false, enabled = false)
+        Abstract(text, color = "#757575", clickable = false, enabled = false)
 
     data class AvailableToChoose(private val text: String) :
         Abstract(text, color = "#61A0FF", clickable = true, enabled = true)
