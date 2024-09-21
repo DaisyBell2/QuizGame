@@ -1,6 +1,5 @@
 package com.daisybell.expertcoursequizgame
 
-import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -27,54 +26,46 @@ class MainActivity : AppCompatActivity() {
 
         val viewModel: GameViewModel = (application as QuizApp).viewModel
 
+        val update: () -> Unit = {
+            uiState.update(
+                questionTextView = binding.questionTextView,
+                firstChoiceButton = binding.firstChoiceButton,
+                secondChoiceButton = binding.secondChoiceButton,
+                thirdChoiceButton = binding.thirdChoiceButton,
+                fourthChoiceButton = binding.fourthChoiceButton,
+                checkButton = binding.checkButton,
+                nextButton = binding.nextButton,
+            )
+        }
+
         binding.firstChoiceButton.setOnClickListener {
             uiState = viewModel.chooseFirst()
-            uiState.update(binding = binding)
+            update.invoke()
         }
         binding.secondChoiceButton.setOnClickListener {
             uiState = viewModel.chooseSecond()
-            uiState.update(binding = binding)
+            update.invoke()
         }
         binding.thirdChoiceButton.setOnClickListener {
             uiState = viewModel.chooseThird()
-            uiState.update(binding = binding)
+            update.invoke()
         }
         binding.fourthChoiceButton.setOnClickListener {
             uiState = viewModel.chooseFourth()
-            uiState.update(binding = binding)
+            update.invoke()
         }
         binding.checkButton.setOnClickListener {
             uiState = viewModel.check()
-            uiState.update(binding = binding)
+            update.invoke()
         }
         binding.nextButton.setOnClickListener {
             uiState = viewModel.next()
-            uiState.update(binding = binding)
+            update.invoke()
         }
 
-        uiState = if (savedInstanceState == null) {
-            viewModel.init()
-        } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                savedInstanceState.getSerializable(
-                    KEY,
-                    GameUiState::class.java
-                ) as GameUiState
-            } else {
-                savedInstanceState.getSerializable(KEY) as GameUiState
-            }
-        }
-        uiState.update(binding = binding)
+        uiState = viewModel.init(savedInstanceState == null)
+        update.invoke()
 
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        outState.putSerializable(KEY, uiState)
-    }
-
-    companion object {
-        private const val KEY = "uiState"
     }
 
 }

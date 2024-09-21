@@ -1,0 +1,51 @@
+package com.daisybell.expertcoursequizgame.views.visiblebutton
+
+import android.content.Context
+import android.os.Parcelable
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatButton
+
+/**
+ * @author DaisyBell on 21.09.2024
+ */
+class VisibilityButton : AppCompatButton, UpdateVisibility {
+
+    private lateinit var state: VisibilityUiState
+
+    constructor(context: Context) : super(context)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
+    )
+
+    override fun onSaveInstanceState(): Parcelable? {
+        return super.onSaveInstanceState()?.let {
+            val savedState = VisibilityButtonSavedState(it)
+            savedState.save(state)
+            return savedState
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        val restoreState = state as VisibilityButtonSavedState
+        super.onRestoreInstanceState(restoreState.superState)
+        update(restoreState.restore())
+    }
+
+    override fun update(visibility: Int) {
+        this.visibility = visibility
+    }
+
+    override fun update(state: VisibilityUiState) {
+        this.state = state
+        state.update(this)
+    }
+
+}
+
+interface UpdateVisibility {
+    fun update(visibility: Int)
+    fun update(state: VisibilityUiState)
+}
