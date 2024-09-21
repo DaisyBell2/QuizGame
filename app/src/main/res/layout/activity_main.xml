@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <TextView
+    <com.daisybell.expertcoursequizgame.views.question.QuestionTextView
         android:id="@+id/questionTextView"
         style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
@@ -28,7 +28,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.choice.ChoiceButton
         android:id="@+id/firstChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
         android:textColor="@color/white"
         tools:text="Вопрос 1" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.choice.ChoiceButton
         android:id="@+id/secondChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
         android:textColor="@color/white"
         tools:text="Вопрос 2" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.choice.ChoiceButton
         android:id="@+id/thirdChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
         android:textColor="@color/white"
         tools:text="Вопрос 3" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.choice.ChoiceButton
         android:id="@+id/fourthChoiceButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.visiblebutton.VisibilityButton
         android:id="@+id/checkButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
         android:text="@string/check"
         android:textColor="@color/white" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.daisybell.expertcoursequizgame.views.visiblebutton.VisibilityButton
         android:id="@+id/nextButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -2,66 +2,61 @@ package com.daisybell.expertcoursequizgame
 
 class GameViewModel(private val repository: GameRepository) {
 
-    fun init(): GameUiState {
-        val data = repository.questionAndChoices()
-        return GameUiState.AnswerQuestion(
-            question = data.question,
-            choices = data.choices
-        )
-    }
+    fun init(firstRun: Boolean = true): GameUiState =
+        if (firstRun) {
+            val data = repository.questionAndChoices()
+            GameUiState.AnswerQuestion(
+                question = data.question,
+                choices = data.choices
+            )
+        } else {
+            GameUiState.Empty
+        }
 
     fun chooseFirst(): GameUiState {
         repository.saveUserChoice(0)
-        val data = repository.questionAndChoices()
         return GameUiState.ChoiceMade(
-            question = data.question,
             choices = listOf(
-                ChoiceUiState.NotAvailableToChoose(data.choices[0]),
-                ChoiceUiState.AvailableToChoose(data.choices[1]),
-                ChoiceUiState.AvailableToChoose(data.choices[2]),
-                ChoiceUiState.AvailableToChoose(data.choices[3]),
+                ChoiceUiState.NotAvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
             )
         )
     }
 
     fun chooseSecond(): GameUiState {
         repository.saveUserChoice(1)
-        val data = repository.questionAndChoices()
         return GameUiState.ChoiceMade(
-            question = data.question,
             choices = listOf(
-                ChoiceUiState.AvailableToChoose(data.choices[0]),
-                ChoiceUiState.NotAvailableToChoose(data.choices[1]),
-                ChoiceUiState.AvailableToChoose(data.choices[2]),
-                ChoiceUiState.AvailableToChoose(data.choices[3]),
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.NotAvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
             )
         )
     }
 
     fun chooseThird(): GameUiState {
         repository.saveUserChoice(2)
-        val data = repository.questionAndChoices()
         return GameUiState.ChoiceMade(
-            question = data.question,
             choices = listOf(
-                ChoiceUiState.AvailableToChoose(data.choices[0]),
-                ChoiceUiState.AvailableToChoose(data.choices[1]),
-                ChoiceUiState.NotAvailableToChoose(data.choices[2]),
-                ChoiceUiState.AvailableToChoose(data.choices[3]),
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.NotAvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
             )
         )
     }
 
     fun chooseFourth(): GameUiState {
         repository.saveUserChoice(3)
-        val data = repository.questionAndChoices()
         return GameUiState.ChoiceMade(
-            question = data.question,
             choices = listOf(
-                ChoiceUiState.AvailableToChoose(data.choices[0]),
-                ChoiceUiState.AvailableToChoose(data.choices[1]),
-                ChoiceUiState.AvailableToChoose(data.choices[2]),
-                ChoiceUiState.NotAvailableToChoose(data.choices[3]),
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.AvailableToChoose,
+                ChoiceUiState.NotAvailableToChoose,
             )
         )
     }
@@ -71,14 +66,13 @@ class GameViewModel(private val repository: GameRepository) {
         val data = repository.questionAndChoices()
 
         return GameUiState.AnswerChecked(
-            question = data.question,
-            choices = data.choices.mapIndexed { index, choice ->
+            choices = data.choices.mapIndexed { index, _ ->
                 if (indexes.correctIndex == index) {
-                    ChoiceUiState.Correct(choice)
+                    ChoiceUiState.Correct
                 } else if (indexes.userChoiceIndex == index) {
-                    ChoiceUiState.Incorrect(choice)
+                    ChoiceUiState.Incorrect
                 } else {
-                    ChoiceUiState.NotAvailableToChoose(choice)
+                    ChoiceUiState.NotAvailableToChoose
                 }
             }
         )

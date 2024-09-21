@@ -29,19 +29,13 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber1() {
-        gamePage.assertAnswerQuestionState()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertAnswerQuestionState()
+        activityScenarioRule.doWithRecreate(gamePage::assertAnswerQuestionState)
 
         gamePage.clickFirstChoice()
-        gamePage.assertChoiceMadeStateFirstChoice()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertChoiceMadeStateFirstChoice()
+        activityScenarioRule.doWithRecreate(gamePage::assertChoiceMadeStateFirstChoice)
 
         gamePage.clickCheck()
-        gamePage.assertAnswerCheckedStateFirstChoice()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertAnswerCheckedStateFirstChoice()
+        activityScenarioRule.doWithRecreate(gamePage::assertAnswerCheckedStateFirstChoice)
     }
 
     /**
@@ -49,24 +43,16 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber2() {
-        gamePage.assertAnswerQuestionState()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertAnswerQuestionState()
+        activityScenarioRule.doWithRecreate(gamePage::assertAnswerQuestionState)
 
         gamePage.clickFirstChoice()
-        gamePage.assertChoiceMadeStateFirstChoice()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertChoiceMadeStateFirstChoice()
+        activityScenarioRule.doWithRecreate(gamePage::assertChoiceMadeStateFirstChoice)
 
         gamePage.clickSecondChoice()
-        gamePage.assertChoiceMadeStateSecondChoice()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertChoiceMadeStateSecondChoice()
+        activityScenarioRule.doWithRecreate(gamePage::assertChoiceMadeStateSecondChoice)
 
         gamePage.clickCheck()
-        gamePage.assertAnswerCheckedStateFirstCorrectSecondIncorrect()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertAnswerCheckedStateFirstCorrectSecondIncorrect()
+        activityScenarioRule.doWithRecreate(gamePage::assertAnswerCheckedStateFirstCorrectSecondIncorrect)
 
         gamePage.clickNext()
 
@@ -75,8 +61,12 @@ class ScenarioTest {
             choices = listOf("green", "blue", "yellow", "red")
         )
 
-        gamePage.assertAnswerQuestionState()
-        activityScenarioRule.scenario.recreate()
-        gamePage.assertAnswerQuestionState()
+        activityScenarioRule.doWithRecreate(gamePage::assertAnswerQuestionState)
+    }
+
+    private fun ActivityScenarioRule<*>.doWithRecreate(block: () -> Unit) {
+        block.invoke()
+        scenario.recreate()
+        block.invoke()
     }
 }
