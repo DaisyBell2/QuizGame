@@ -3,6 +3,7 @@ package com.daisybell.expertcoursequizgame
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.daisybell.expertcoursequizgame.game.GamePage
+import com.daisybell.expertcoursequizgame.gameover.GameOverPage
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -94,13 +95,13 @@ class ScenarioTest {
         activityScenarioRule.doWithRecreate(gamePage::assertAnswerCheckedStateFirstCorrectSecondIncorrect)
 
         gamePage.clickNext()
-        gamePage.assertNotVisible()
+        gamePage.assertDoesNotExist()
 
         var gameOverPage = GameOverPage(incorrects = 2, corrects = 0)
         activityScenarioRule.doWithRecreate(gameOverPage::assertInitialState)
 
         gameOverPage.clickNewGame()
-        gameOverPage.assertNotVisible()
+        gameOverPage.assertDoesNotExist()
 
         //endregion
 
@@ -134,13 +135,13 @@ class ScenarioTest {
         activityScenarioRule.doWithRecreate(gamePage::assertAnswerCheckedStateFirstChoice)
 
         gamePage.clickNext()
-        gamePage.assertNotVisible()
+        gamePage.assertDoesNotExist()
 
         gameOverPage = GameOverPage(incorrects = 1, corrects = 1)
         activityScenarioRule.doWithRecreate(gameOverPage::assertInitialState)
 
         gameOverPage.clickNewGame()
-        gameOverPage.assertNotVisible()
+        gameOverPage.assertDoesNotExist()
 
         //endregion
 
@@ -174,7 +175,7 @@ class ScenarioTest {
         activityScenarioRule.doWithRecreate(gamePage::assertAnswerCheckedStateFirstChoice)
 
         gamePage.clickNext()
-        gamePage.assertNotVisible()
+        gamePage.assertDoesNotExist()
 
         gameOverPage = GameOverPage(incorrects = 0, corrects = 2)
         activityScenarioRule.doWithRecreate(gameOverPage::assertInitialState)
