@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isCompletelyDisplayed
@@ -31,6 +32,10 @@ class QuestionUi(
 
     fun assertTextVisible() {
         interaction.check(matches(isCompletelyDisplayed()))
+    }
+
+    fun assertDoesNotExist() {
+        interaction.check(doesNotExist())
     }
 
 }
