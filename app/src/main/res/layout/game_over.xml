@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/gameOverContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.daisybell.expertcoursequizgame.views.stats.StatsTextView
+        android:id="@+id/statsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        tools:text="@string/stats" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/newGameButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="8dp"
+        android:background="@color/violet"
+        android:text="@string/new_game"
+        android:textColor="@color/white" />
+</FrameLayout>
