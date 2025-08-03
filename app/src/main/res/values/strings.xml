@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">ExpertCourseQuizGame</string>
-    <string name="next">next</string>
-    <string name="check">check</string>
+    <string name="next">Next</string>
+    <string name="check">Check</string>
+    <string name="new_game">New Game</string>
+    <string name="stats">Correct: %d/nIncorrect: %d</string>
 </resources>
